@@ -1,5 +1,7 @@
 package com.shapedhorizon;
 
+import java.util.Objects;
+
 public class PointBasic {
     private int x, y;
     private int color;
@@ -40,6 +42,16 @@ public class PointBasic {
 
     public static double getDistance(PointBasic p1, PointBasic p2){
         return Math.sqrt(Math.pow(p1.getX() - p2.getX(), 2) + Math.pow(p1.getY() - p2.getY(), 2));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PointBasic that = (PointBasic) o;
+        return getX() == that.getX() &&
+                getY() == that.getY() &&
+                getColor() == that.getColor();
     }
 
 }
