@@ -34,4 +34,12 @@ public class PointBasic {
         this.color = color;
     }
 
+    public double getDistance(PointBasic p){
+        return Math.sqrt(Math.pow(this.x - p.getX(), 2) + Math.pow(this.y - p.getY(), 2));
+    }
+
+    public static double getDistance(PointBasic p1, PointBasic p2){
+        return Math.sqrt(Math.pow(p1.getX() - p2.getX(), 2) + Math.pow(p1.getY() - p2.getY(), 2));
+    }
+
 }
