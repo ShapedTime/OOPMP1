@@ -42,7 +42,7 @@ public class TriangleShape implements Shape {
 
     @Override
     public PointBasic getCenter() {
-        return this.centerg;
+        return this.center;
     }
 
 
