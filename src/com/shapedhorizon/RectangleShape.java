@@ -100,4 +100,26 @@ public class RectangleShape implements Shape {
         }
         return ret;
     }
+
+    @Override
+    public boolean isInside(PointBasic p) {
+        /* Calculate area of rectangle ABCD */
+
+        double A = TriangleShape.area(this.p1, this.p2, this.p3) + TriangleShape.area(this.p1, this.p4, this.p3);
+
+        double A1 = TriangleShape.area(p, this.p1, this.p2);
+
+        /* Calculate area of triangle PBC */
+        double A2 = TriangleShape.area(p, this.p2, this.p3);
+
+        /* Calculate area of triangle PCD */
+        double A3 = TriangleShape.area(p, this.p3, this.p4);
+
+        /* Calculate area of triangle PAD */
+        double A4 = TriangleShape.area(p, this.p1, this.p4);
+
+        double diff = A - (A1 + A2 + A3 + A4);
+
+        return diff < 0.01;
+    }
 }

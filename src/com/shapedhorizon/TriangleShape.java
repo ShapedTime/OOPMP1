@@ -43,6 +43,35 @@ public class TriangleShape implements Shape {
     }
 
 
+    public static double area(PointBasic p1, PointBasic p2, PointBasic p3)
+    {
+        return Math.abs((p1.getX()*(p2.getY()-p3.getY()) + p2.getX()*(p3.getY()-p1.getY())+
+                p3.getX()*(p1.getY()-p2.getY()))/2.0);
+    }
+
+    /* A function to check whether point P(x, y) lies 
+       inside the triangle formed by A(this.p1.getX(), this.p1.getY()), 
+       B(this.p2.getX(), this.p2.getY()) and C(this.p3.getX(), this.p3.getY()) */
+    public boolean isInside(PointBasic p)
+    {
+        /* Calculate area of triangle ABC */
+        double A = area (this.p1, this.p2, this.p3);
+
+        /* Calculate area of triangle PBC */
+        double A1 = area (p, this.p2, this.p3);
+
+        /* Calculate area of triangle PAC */
+        double A2 = area (this.p1, p, this.p3);
+
+        /* Calculate area of triangle PAB */
+        double A3 = area (this.p1, this.p2, p);
+
+        double diff = A - (A1 + A2 + A3);
+
+        return diff < 0.01;
+    }
+
+
     @Override
     public PointBasic getCenter() {
         return this.center;

@@ -33,4 +33,14 @@ public class LineShape implements Shape {
         ret.add(line);
         return ret;
     }
+
+    @Override
+    public boolean isInside(PointBasic p) {
+        double distAB = this.line.getLength();
+        double distAC = this.line.getP1().getDistance(p);
+        double distCB = this.line.getP2().getDistance(p);
+        double diff = Math.abs(distAB - (distAC + distCB));
+
+        return diff < 0.01; // because we need "fuzzy equals" comparison with doubles and floats
+    }
 }
