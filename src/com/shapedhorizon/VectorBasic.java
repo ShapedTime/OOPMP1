@@ -49,4 +49,9 @@ public class VectorBasic {
     public PointBasic getCenter(){
         return new PointBasic((p1.getX() + p2.getX())/2, (p1.getY() + p2.getY())/2, this.color);
     }
+
+    public double getLength(){
+        return p1.getDistance(p2);
+    }
+
 }
