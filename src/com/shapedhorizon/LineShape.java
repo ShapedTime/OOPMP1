@@ -28,11 +28,6 @@ public class LineShape implements Shape {
     }
 
     @Override
-    public void setCenter(PointBasic point) {
-        this.center = point;
-    }
-
-    @Override
     public List<VectorBasic> getVectors() {
         ArrayList<VectorBasic> ret = new ArrayList<VectorBasic>();
         ret.add(line);
