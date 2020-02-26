@@ -54,4 +54,16 @@ public class VectorBasic {
         return p1.getDistance(p2);
     }
 
+    public boolean hasCommonPoint(VectorBasic l){
+        return this.p1.equals(l.getP1()) ||
+                this.p1.equals(l.getP2()) ||
+                this.p2.equals(l.getP2());
+    }
+
+    public static boolean hasCommonPoint(VectorBasic l1, VectorBasic l2){
+        return l1.getP1().equals(l2.getP1()) ||
+                l1.getP1().equals(l2.getP2()) ||
+                l1.getP2().equals(l2.getP2());
+    }
+
 }
