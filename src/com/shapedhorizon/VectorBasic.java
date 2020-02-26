@@ -66,4 +66,18 @@ public class VectorBasic {
                 l1.getP2().equals(l2.getP2());
     }
 
+    public PointBasic commonPoint(VectorBasic l){
+        if(!this.hasCommonPoint(l)) return null;
+        if(this.p1.equals(l.getP1())) return this.p1;
+        if(this.p1.equals(l.getP2())) return this.p1;
+        return this.p2;
+    }
+
+    public static PointBasic commonPoint(VectorBasic l1, VectorBasic l2){
+        if(!l1.hasCommonPoint(l2)) return null;
+        if(l1.getP1().equals(l2.getP1())) return l1.getP1();
+        if(l1.getP1().equals(l2.getP2())) return l1.getP1();
+        return l1.getP2();
+    }
+
 }
